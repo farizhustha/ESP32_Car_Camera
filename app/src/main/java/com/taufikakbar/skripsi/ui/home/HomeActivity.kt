@@ -15,23 +15,33 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var viewModel: HomeViewModel
 
-    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val ipAddress = intent.getStringExtra(URL_KEY) ?: ""
+        setupViewModel()
+        setupObserver()
+        setupAction()
+    }
 
+    private fun setupViewModel() {
+        val ipAddress = intent.getStringExtra(URL_KEY) ?: ""
         val factory = ViewModelFactory("http://$ipAddress")
 
-        viewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
+        viewModel = ViewModelProvider(this, factory)[
+                HomeViewModel::class.java
+        ]
 
         viewModel.startStreaming(ipAddress)
+    }
+
+    private fun setupObserver() {
         viewModel.imageData.observe(this) { image ->
             binding.imgHomeStream.setImageBitmap(image)
         }
+
         viewModel.isFlash.observe(this) { state ->
             if (state) {
                 viewModel.setFlash("on")
@@ -41,6 +51,10 @@ class HomeActivity : AppCompatActivity() {
                 binding.btnHomeFlash.setImageResource(R.drawable.ic_flashlight_off_24)
             }
         }
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setupAction() {
         binding.apply {
             btnHomeForward.setOnTouchListener(SetAction("forward"))
             btnHomeLeft.setOnTouchListener(SetAction("left"))
@@ -50,7 +64,6 @@ class HomeActivity : AppCompatActivity() {
                 viewModel.isFlash.value?.let {
                     viewModel.setFlashState(!it)
                 }
-
             }
         }
     }

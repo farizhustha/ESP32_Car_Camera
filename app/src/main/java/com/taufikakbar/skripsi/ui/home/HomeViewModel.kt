@@ -10,7 +10,6 @@ import com.taufikakbar.skripsi.data.EspRepository
 import kotlinx.coroutines.launch
 import okhttp3.*
 import java.io.*
-import java.net.MalformedURLException
 
 class HomeViewModel(private val espRepository: EspRepository) : ViewModel() {
     private val _imageData = MutableLiveData<Bitmap>()
@@ -25,8 +24,8 @@ class HomeViewModel(private val espRepository: EspRepository) : ViewModel() {
         }
     }
 
-    fun setFlashState(state: Boolean){
-       _isFLash.value = state
+    fun setFlashState(state: Boolean) {
+        _isFLash.value = state
     }
 
     fun setFlash(state: String) {
@@ -86,7 +85,7 @@ class HomeViewModel(private val espRepository: EspRepository) : ViewModel() {
                 override fun onFailure(call: Call, e: IOException) {
                 }
             })
-        } catch (_: MalformedURLException) {
+        } catch (_: IllegalStateException) {
 
         } finally {
             try {
