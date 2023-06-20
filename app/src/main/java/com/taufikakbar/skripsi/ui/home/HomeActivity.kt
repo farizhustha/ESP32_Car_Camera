@@ -45,10 +45,10 @@ class HomeActivity : AppCompatActivity() {
         viewModel.isFlash.observe(this) { state ->
             if (state) {
                 viewModel.setFlash("on")
-                binding.btnHomeFlash.setImageResource(R.drawable.ic_flashlight_on_24)
+                binding.btnHomeFlash.setImageResource(R.drawable.ic_flashlight_off_24)
             } else {
                 viewModel.setFlash("off")
-                binding.btnHomeFlash.setImageResource(R.drawable.ic_flashlight_off_24)
+                binding.btnHomeFlash.setImageResource(R.drawable.ic_flashlight_on_24)
             }
         }
     }
