@@ -9,4 +9,6 @@
     <string name="start">START</string>
     <string name="ip_address">IP Address</string>
     <string name="ip_address_fill">IP Address:</string>
+    <string name="name">Nama: Taufik Akbar</string>
+    <string name="nim">NIM: 162019019</string>
 </resources>

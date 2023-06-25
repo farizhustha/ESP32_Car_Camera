@@ -7,6 +7,17 @@
     android:background="@color/primary"
     tools:context=".ui.home.HomeActivity">
 
+    <ImageView
+        android:id="@+id/img_home_stream"
+        android:layout_width="400dp"
+        android:layout_height="225dp"
+        android:contentDescription="@string/streaming"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <View
         android:id="@+id/view"
         android:layout_width="180dp"
@@ -84,17 +95,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view" />
-
-    <ImageView
-        android:id="@+id/img_home_stream"
-        android:layout_width="350dp"
-        android:layout_height="196dp"
-        android:contentDescription="@string/streaming"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ImageContrastCheck"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/btn_home_flash"

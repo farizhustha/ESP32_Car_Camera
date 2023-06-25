@@ -8,11 +8,36 @@
     tools:context=".ui.config.ConfigActivity">
 
     <TextView
-        android:id="@+id/tv_config_ip"
+        android:id="@+id/tv_config_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/name"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_config_nim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/nim"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_config_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_config_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_config_name" />
+
+    <TextView
+        android:id="@+id/tv_config_ip"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/ip_address_fill"
@@ -22,7 +47,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_config_nim"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.textfield.TextInputLayout
